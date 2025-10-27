@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Realms ⚡ Közösség és Stream</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-box">Shadow Realms</div>
+        <nav>
+            <a href="index.html">Főoldal</a>
+            <a href="server.html">Szerver Info</a>
+            <a href="community.html" class="active">Közösség</a>
+            <a href="store.html">Bolt</a>
+        </nav>
+        <a href="javascript:void(0);" onclick="copyIP('shadowrealms.sytes.net')" class="cta-header"><i class="fas fa-play"></i> Csatlakozz Most</a>
+    </header>
+
+    <main>
+        <section class="page-title">
+            <h2>Közösségi Hub: Twitch és YouTube</h2>
+            <p>Itt nézheted élőben Sztereó kalandjait, és találod meg a legújabb események összefoglalóját!</p>
+        </section>
+
+        <section class="content-section">
+            <h3 class="platform-title"><i class="fab fa-twitch"></i> Élőben a Twitchen</h3>
+            <iframe
+                src="https://player.twitch.tv/?channel=sztere&parent=[A TE DOMAIN NEVED.PL. shadowrealms.hu]" 
+                height="400" 
+                width="100%" 
+                allowfullscreen="true"
+                frameborder="0"
+                scrolling="no"
+                style="border: 2px solid #9146ff; border-radius: 5px;">
+            </iframe>
+        </section>
+
+
+        <section id="shadow-vault" class="dark-section">
+            <h2>🔑 Shadow Vault: Exkluzív Tartalom</h2>
+            <p>Nézd meg a legújabb eseményeket, VOD-okat és kulisszák mögötti anyagokat. Írd be a legutóbbi streamünkben/videónkban elhangzott **kulcsszót**!</p>
+
+            <div id="vault-card">
+                <div id="vault-lock">
+                    <i class="fas fa-lock icon-lock"></i>
+                    <p>VAULT ZÁRVA</p>
+                    <input type="text" id="vault-key" placeholder="Írd be a Jelszót...">
+                    <button class="cta-header" onclick="unlockVault()">Nyitás</button>
+                </div>
+                <div id="vault-content" style="display:none; text-align: center;">
+                    <iframe width="560" height="315" 
+                        src="https://www.youtube.com/embed/4lBzNK_3-Ws" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    <p class="unlocked-message">✅ Kód sikeresen feloldva! Ez a tartalom csak a belsősöknek szól!</p>
+                </div>
+            </div>
+        </section>
+        </main>
+
+    <footer>
+        <p>&copy; 2024 Shadow Realms. IP: shadowrealms.sytes.net</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
