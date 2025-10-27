@@ -3,58 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shadow Realms ⚡ Kezdőlap</title>
+    <title>Shadow Realms ⚡ Főoldal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <div class="logo-box">Shadow Realms</div>
+        <div class="logo-box">SHADOW REALMS</div>
         <nav>
-            <a href="index.html" class="active">Főoldal</a>
-            <a href="server.html">Szerver Info</a>
-            <a href="community.html">Közösség</a>
-            <a href="store.html">Bolt</a>
+            <a href="index.html" class="active">FŐOLDAL</a>
+            <a href="server.html">SZERVER</a>
+            <a href="community.html">KÖZÖSSÉG & VAULT</a>
+            <a href="event.html">EVENTEK</a>
         </nav>
-        <a href="javascript:void(0);" onclick="copyIP('shadowrealms.sytes.net')" class="cta-header"><i class="fas fa-play"></i> Csatlakozz Most</a>
+        <a href="server.html" class="cta-header"><i class="fas fa-play"></i> JÁTÉK INFÓ</a>
     </header>
 
-    <main class="hero-section">
-        <div class="hero-content">
-            <h1>Lépj be az Árnyék Birodalomba.</h1>
-            <p>Túlélés, Egyedi Kalandok, Építés és Epikus Közösségi Tartalmak.</p>
-            
-            <div class="ip-display-box">
-                <span id="mc-ip">shadowrealms.sytes.net</span>
-                <button class="copy-btn" onclick="copyIP('shadowrealms.sytes.net')">
-                    <i class="fas fa-copy"></i> Másolás
-                </button>
-            </div>
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>LÉPJ BE A SHADOW REALMS BIRODALMÁBA.</h1>
+                <p>Fedezz fel egy nehéz, de igazságos Survival világot, ahol csak a legelszántabbak érik el a csúcsot. A Sötét Kor elkezdődött.</p>
+                
+                <div class="ip-display-box">
+                    <span id="mc-ip">shadowrealmswebsite.sytes.net</span>
+                    <button class="copy-btn" onclick="copyIP(MC_IP)">
+                        <i class="fas fa-copy"></i> Másolás
+                    </button>
+                </div>
 
-            <div id="status-widget">
-                <span id="mc-status-text" class="status-loading">Betöltés...</span>
-                <span id="mc-players"></span>
+                <div id="status-widget">
+                    <span id="mc-status-text" class="status-loading">Betöltés...</span>
+                    <span id="mc-players"></span>
+                </div>
             </div>
-            
-        </div>
+        </section>
+
+        <section>
+            <h2>MIÉRT A SHADOW REALMS?</h2>
+            <p style="max-width: 800px; margin: 0 auto; font-size: 1.1em;">
+                Ez nem a te átlagos, unalmas Minecraft szervered. Itt a kihívás áll a középpontban: egyedi szörnyek, ritka zsákmány, kiegyensúlyozott PVP és egy közösség, amely minden éjszaka túléli a sötétséget. Nézz be a **Server** fülre a részletes játékinfókért, vagy használd a **Vault**-ot exkluzív tartalomért!
+            </p>
+        </section>
     </main>
-    
-    <section class="quick-links">
-        <h2>Ahol a közösség él:</h2>
-        <a href="https://discord.gg/x62A3ag54n" target="_blank" class="platform-link discord">
-            <i class="fab fa-discord"></i> Shadow Realms Discord Központ (3 Szerver Egy Helyen)
-        </a>
-        <a href="https://www.youtube.com/@sztereó_Official" target="_blank" class="platform-link youtube">
-            <i class="fab fa-youtube"></i> Legújabb Videók a YouTube-on!
-        </a>
-        <a href="https://www.twitch.tv/sztere" target="_blank" class="platform-link twitch">
-            <i class="fab fa-twitch"></i> Sztere Twitch Live Stream
-        </a>
-    </section>
 
     <footer>
-        <p>&copy; 2024 Shadow Realms. IP: shadowrealms.sytes.net</p>
+        <p>&copy; 2024 Shadow Realms. IP: shadowrealmswebsite.sytes.net | Minden jog fenntartva.</p>
     </footer>
 
     <script src="script.js"></script>
