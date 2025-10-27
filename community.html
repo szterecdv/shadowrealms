@@ -3,53 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shadow Realms ⚡ Közösség és Stream</title>
+    <title>Shadow Realms ⚡ Közösség & Vault</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <div class="logo-box">Shadow Realms</div>
+        <div class="logo-box">SHADOW REALMS</div>
         <nav>
-            <a href="index.html">Főoldal</a>
-            <a href="server.html">Szerver Info</a>
-            <a href="community.html" class="active">Közösség</a>
-            <a href="store.html">Bolt</a>
+            <a href="index.html">FŐOLDAL</a>
+            <a href="server.html">SZERVER</a>
+            <a href="community.html" class="active">KÖZÖSSÉG & VAULT</a>
+            <a href="event.html">EVENTEK</a>
         </nav>
-        <a href="javascript:void(0);" onclick="copyIP('shadowrealms.sytes.net')" class="cta-header"><i class="fas fa-play"></i> Csatlakozz Most</a>
+        <a href="https://discord.gg/yourinvite" target="_blank" class="cta-header"><i class="fab fa-discord"></i> DISCORD</a>
     </header>
 
     <main>
-        <section class="page-title">
-            <h2>Közösségi Hub: Twitch és YouTube</h2>
-            <p>Itt nézheted élőben Sztereó kalandjait, és találod meg a legújabb események összefoglalóját!</p>
+        <section>
+            <h2>📺 SZTERE ÉLŐBEN (TWITCH)</h2>
+            <p>Nézd a közösségi streameket és a legújabb kalandokat! Ne feledd: a Vault Jelszó itt hangzik el!</p>
+            
+            <div id="twitch-embed" style="max-width: 800px; margin: 40px auto;">
+                <iframe
+                    src="https://player.twitch.tv/?channel=sztere&parent=shadowrealmswebsite.sytes.net" 
+                    height="400" 
+                    width="100%" 
+                    allowfullscreen="true"
+                    frameborder="0"
+                    scrolling="no"
+                    style="border: 3px solid var(--accent-purple); border-radius: 8px; box-shadow: 0 0 15px rgba(160, 32, 240, 0.5);">
+                </iframe>
+            </div>
         </section>
 
-        <section class="content-section">
-            <h3 class="platform-title"><i class="fab fa-twitch"></i> Élőben a Twitchen</h3>
-            <iframe
-                src="https://player.twitch.tv/?channel=sztere&parent=teszt123.ddns.net" 
-                height="400" 
-                width="100%" 
-                allowfullscreen="true"
-                frameborder="0"
-                scrolling="no"
-                style="border: 2px solid #9146ff; border-radius: 5px;">
-            </iframe>
-        </section>
-
-
-        <section id="shadow-vault" class="dark-section">
-            <h2>🔑 Shadow Vault: Exkluzív Tartalom</h2>
-            <p>Nézd meg a legújabb eseményeket, VOD-okat és kulisszák mögötti anyagokat. Írd be a legutóbbi streamünkben/videónkban elhangzott **kulcsszót**!</p>
+        <section id="vault-section">
+            <h2>🔑 SHADOW VAULT</h2>
+            <p>Exkluzív VOD-ok és Előzetesek. Írd be a streamen elhangzott JELSZÓT!</p>
 
             <div id="vault-card">
                 <div id="vault-lock">
                     <i class="fas fa-lock icon-lock"></i>
                     <p>VAULT ZÁRVA</p>
-                    <input type="text" id="vault-key" placeholder="Írd be a Jelszót...">
-                    <button class="cta-header" onclick="unlockVault()">Nyitás</button>
+                    <input type="text" id="vault-key" placeholder="Jelszó..." value="">
+                    <button class="cta-vault-button" onclick="unlockVault()">NYITÁS</button>
                 </div>
                 <div id="vault-content" style="display:none; text-align: center;">
                     <iframe width="560" height="315" 
@@ -62,13 +60,13 @@
                 </div>
             </div>
         </section>
-        </main>
+    </main>
 
     <footer>
-        <p>&copy; 2024 Shadow Realms. IP: shadowrealms.sytes.net</p>
+        <p>&copy; 2024 Shadow Realms. IP: shadowrealmswebsite.sytes.net | Minden jog fenntartva.</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>
+
