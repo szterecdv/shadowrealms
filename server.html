@@ -3,38 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shadow Realms ⚡ Szerver Információ</title>
+    <title>Shadow Realms ⚡ Szerver Info</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+
     <header>
-        <div class="logo-box">Shadow Realms</div>
+        <div class="logo-box">SHADOW REALMS</div>
         <nav>
-            <a href="index.html">Főoldal</a>
-            <a href="server.html" class="active">Szerver Info</a>
-            <a href="community.html">Közösség</a>
-            <a href="store.html">Bolt</a>
+            <a href="index.html">FŐOLDAL</a>
+            <a href="server.html" class="active">SZERVER</a>
+            <a href="community.html">KÖZÖSSÉG & VAULT</a>
+            <a href="event.html">EVENTEK</a>
         </nav>
-        <a href="javascript:void(0);" onclick="copyIP('shadowrealms.sytes.net')" class="cta-header"><i class="fas fa-play"></i> Csatlakozz Most</a>
+        <a href="javascript:void(0);" onclick="copyIP(MC_IP)" class="cta-header"><i class="fas fa-copy"></i> IP MÁSOLÁSA</a>
     </header>
 
     <main>
-        <section class="page-title">
-            <h2>A Birodalom Játékmódjai</h2>
-            <p>Fedezd fel a lehetőségeket! A Shadow Realms nem csak egy szerver, ez egy komplex világ.</p>
+        <section>
+            <h2>🌐 SZERVER STÁTUSZ ÉS KAPCSOLÓDÁS</h2>
+            
+            <div class="hero-content" style="max-width: 500px; margin: 0 auto; padding: 30px;">
+                <p>Jelenlegi állapot:</p>
+                <div id="status-widget">
+                    <span id="mc-status-text" class="status-loading">Betöltés...</span>
+                    <span id="mc-players"></span>
+                </div>
+                
+                <p style="margin-top: 20px;">Kapcsolódási cím:</p>
+                <div class="ip-display-box">
+                    <span id="mc-ip">shadowrealmswebsite.sytes.net</span>
+                    <button class="copy-btn" onclick="copyIP(MC_IP)">
+                        <i class="fas fa-copy"></i> Másolás
+                    </button>
+                </div>
+                <p style="font-size: 0.9em; margin-top: 10px;">Verzió: 1.19.4-1.20.2 (Cross-version támogatott)</p>
+            </div>
         </section>
 
-        <section class="features-grid">
-            <div class="feature-card"><h3><i class="fas fa-hammer"></i> Egyedi Survival</h3><p>Tapasztalatszerzés, egyedi recepek, kiegyensúlyozott gazdaság és PVP zónák.</p></div>
-            <div class="feature-card"><h3><i class="fas fa-map"></i> Kaland Módok</h3><p>Heti rendszerességgel frissülő küldetések, rejtvények és eventek a közösséggel.</p></div>
-            <div class="feature-card"><h3><i class="fas fa-trophy"></i> Discord Rangok</h3><p>A 3 Discord szerverünk célzott rangokkal és jogosultságokkal jutalmazza az aktivitást.</p></div>
+        <section>
+            <h2>⚔️ JÁTÉK JELLEMZŐK</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3><i class="fas fa-skull-crossbones"></i> Hardcore Survival</h3>
+                    <p>Nehezített mobok, ritka erőforrások, növelt éjszakai nehézség. A halál nem jelent véget, de fájni fog.</p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-gem"></i> Custom Enchants</h3>
+                    <p>Fejlessz a normál szint fölé egyedi enchantokkal, amiket csak ritka ládákban találsz.</p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-scroll"></i> Küldetés Rendszer</h3>
+                    <p>Teljesíts napi és heti küldetéseket, hogy exkluzív kozmetikai jutalmakat szerezz.</p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-gavel"></i> Fair Trade (Bolt)</h3>
+                    <p>A boltban csak EULA-kompatibilis rangok és funkciók érhetők el, ami nem ad PVP előnyt.</p>
+                </div>
+            </div>
         </section>
-        
     </main>
 
     <footer>
-        <p>&copy; 2024 Shadow Realms. IP: shadowrealms.sytes.net</p>
+        <p>&copy; 2024 Shadow Realms. IP: shadowrealmswebsite.sytes.net | Minden jog fenntartva.</p>
     </footer>
 
     <script src="script.js"></script>
