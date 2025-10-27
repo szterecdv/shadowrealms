@@ -1,4 +1,4 @@
-// script.js - Végleges verzió
+// script.js - A funkciók alapja
 
 // ====================================
 // A TE ADATAID: CSERÉLD LE EZEKET!
@@ -7,12 +7,10 @@
 const MC_IP = "shadowrealmswebsite.sytes.net"; 
 const MC_PORT = "25565";
 const VAULT_KEY = "SHADOWREALMS"; // 🔑 AZ EXKLUZÍV KULCSSZÓ!
-
-// ÚJ: CÉL IDŐPONT: ÁLLÍTSD BE IDE A JÖVŐBENI DÁTUMOT!
 const COUNTDOWN_TARGET_DATE = new Date("Nov 15, 2024 18:00:00").getTime(); 
 
 // ====================================
-// 1. IP MÁSOLÓ FUNKCIÓ
+// 1. IP MÁSOLÓ FUNKCIÓ (Független apró funkció)
 // ====================================
 
 function copyIP(ip) {
@@ -27,7 +25,7 @@ function copyIP(ip) {
 }
 
 // ====================================
-// 2. MINECRAFT STÁTUSZ ELLENŐRZÉS
+// 2. MINECRAFT STÁTUSZ ELLENŐRZÉS (Szerver infó)
 // ====================================
 
 async function checkServerStatus() {
@@ -59,7 +57,7 @@ async function checkServerStatus() {
 }
 
 // ====================================
-// 3. SHADOW VAULT FUNKCIÓ 
+// 3. SHADOW VAULT FUNKCIÓ (Exkluzív tartalom)
 // ====================================
 
 function unlockVault() {
@@ -72,25 +70,24 @@ function unlockVault() {
     const input = inputField.value.toUpperCase().trim();
 
     if (input === VAULT_KEY) {
-        // Sikeres nyitás
         lockDiv.style.display = 'none';
         contentDiv.style.display = 'block';
         document.getElementById('vault-card').style.borderColor = 'var(--accent-cyan)';
-        // KIS FUNKCIÓ: A videó automatikus elindítása (ha engedélyezve van a YouTube beállításokban)
+        
+        // Autoplay próbálkozás
         const iframe = contentDiv.querySelector('iframe');
-        if (iframe) {
-             iframe.src += "?autoplay=1"; // Próbálja elindítani
+        if (iframe && iframe.src.indexOf('autoplay') === -1) {
+             iframe.src += iframe.src.indexOf('?') > -1 ? "&autoplay=1" : "?autoplay=1";
         }
         alert('VAULT FELOLDVA! Exkluzív tartalom elérhető! ▶️');
     } else {
-        // Sikertelen nyitás
         alert('Helytelen Jelszó. Figyelj jobban a streamre/videóra!');
         inputField.value = '';
     }
 }
 
 // ====================================
-// 4. ESEMÉNY VISSZASZÁMLÁLÓ
+// 4. ESEMÉNY VISSZASZÁMLÁLÓ (Apró funkció)
 // ====================================
 
 function updateCountdown() {
@@ -115,12 +112,12 @@ function updateCountdown() {
         minutesEl.textContent = String(minutes).padStart(2, '0');
         secondsEl.textContent = String(seconds).padStart(2, '0');
     } else {
-        // Esemény lejárt, eltávolítja a visszaszámlálót
+        // Esemény lejárt
         clearInterval(countdownInterval);
         const countdownBox = document.getElementById("countdown-box");
         if (countdownBox) {
             countdownBox.innerHTML = 
-                '<p style="font-size: 1.5em; color: var(--accent-purple);">AZ ESEMÉNY ELKEZDŐDÖTT! Csapj bele!</p>';
+                '<p style="font-size: 1.5em; color: var(--accent-purple);">AZ ESEMÉNY ELKEZDŐDÖTT! CSATLAKOZZ MOST!</p>';
         }
     }
 }
@@ -130,9 +127,13 @@ function updateCountdown() {
 // ====================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Szerver státusz minden oldalon indul
     checkServerStatus(); 
     setInterval(checkServerStatus, 60000); 
     
-    updateCountdown();
-    const countdownInterval = setInterval(updateCountdown, 1000);
+    // Visszaszámláló csak az event.html-en indul
+    if (document.getElementById("countdown-box")) {
+        updateCountdown();
+        window.countdownInterval = setInterval(updateCountdown, 1000);
+    }
 });
