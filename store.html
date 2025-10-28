@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Realms ⚡ Eventek</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-box">SHADOW REALMS</div>
+        <nav>
+            <a href="index.html">FŐOLDAL</a>
+            <a href="server.html">SZERVER</a>
+            <a href="community.html">KÖZÖSSÉG</a>
+            <a href="event.html" class="active">EVENTEK</a>
+        </nav>
+        <button class="cta-header" onclick="toggleSettings()"><i class="fas fa-cog"></i> BEÁLLÍTÁSOK</button>
+    </header>
+
+    <main>
+        <section id="countdown-section" style="background-color: #000010;">
+            <h2>⏳ KÖVETKEZŐ NAGY EVENT: ŐSI TITKOK</h2>
+            <p>A Földalatti Kincskeresés indul:</p>
+            <div id="countdown-box" style="max-width: 700px; margin: 30px auto;">
+                <div class="time-segment">
+                    <span id="days">00</span>
+                    <small>Nap</small>
+                </div>
+                <div class="time-segment">
+                    <span id="hours">00</span>
+                    <small>Óra</small>
+                </div>
+                <div class="time-segment">
+                    <span id="minutes">00</span>
+                    <small>Perc</small>
+                </div>
+                <div class="time-segment">
+                    <span id="seconds">00</span>
+                    <small>Másodperc</small>
+                </div>
+            </div>
+            <a href="#" class="cta-vault-button" style="margin-top: 30px;"><i class="fas fa-download"></i> NAPTÁR LETÖLTÉSE (.ICS)</a>
+        </section>
+
+        <section>
+            <h2>🗓️ HETI ÉS HAVI ESEMÉNYEK</h2>
+            <div class="feature-grid" style="max-width: 1200px; margin: 40px auto;">
+                <div class="feature-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Heti PVP Bajnokság</h3>
+                    <p>**Időpont:** Minden szombat 20:00. **Részletek:** Discordon.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Építési Verseny</h3>
+                    <p>**Téma:** Az Elfeledett Erőd. **Jutalmak:** Exkluzív in-game cím és kozmetikumok.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mountain"></i>
+                    <h3>Túlélő Expedíció</h3>
+                    <p>**Új Funkció!** Egy hónapra lezárt, hardcore terület, csak a legjobbaknak.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Shadow Realms. IP: shadowrealmswebsite.sytes.net | Minden jog fenntartva.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

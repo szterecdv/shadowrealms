@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Realms ⚡ Főoldal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-box">SHADOW REALMS</div>
+        <nav>
+            <a href="index.html" class="active">FŐOLDAL</a>
+            <a href="server.html">SZERVER</a>
+            <a href="community.html">KÖZÖSSÉG</a>
+            <a href="event.html">EVENTEK</a>
+        </nav>
+        <button class="cta-header" onclick="toggleSettings()"><i class="fas fa-cog"></i> BEÁLLÍTÁSOK</button>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>LÉPJ BE A SHADOW REALMS BIRODALMÁBA.</h1>
+                <p>Epikus Survival | Kiegyensúlyozott PVP | Titkok és Kalandok várnak.</p>
+                
+                <div class="ip-display-box">
+                    <span id="mc-ip">shadowrealmswebsite.sytes.net</span>
+                    <button class="copy-btn" onclick="copyIP(MC_IP)">
+                        <i class="fas fa-copy"></i> MÁSOLÁS
+                    </button>
+                </div>
+                <div id="status-widget">
+                    <span id="mc-status-text" class="status-loading">Betöltés...</span>
+                    <span id="mc-players"></span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🌟 MIÉRT VÁLASSZ MINKET?</h2>
+            <div class="feature-grid" style="max-width: 1000px; margin: 40px auto;">
+                <div class="feature-card">
+                    <i class="fas fa-skull-crossbones"></i>
+                    <h3>Hardcore Survival</h3>
+                    <p>Nehezített mobok, egyedi Loot-rendszer. Tényleg kemény a túlélés.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Shadow Vault</h3>
+                    <p>Exkluzív tartalmak, amikhez csak a hűségesek jutnak hozzá. Nézd a streameket a kulcsszóért!</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Optimizált Játékmenet</h3>
+                    <p>Lag-mentes, 24/7 elérhető szerver, modern hardveren.</p>
+                </div>
+            </div>
+        </section>
+        
+        <script>
+            console.log("%c[SR_INFO] A titok a console-ban rejlik! Talán egy Vault kulcs?", "color: #A020F0; font-size: 14px;");
+        </script>
+    </main>
+
+    <div id="settings-menu" class="settings-menu-overlay">
+        </div>
+
+    <footer>
+        <p>&copy; 2024 Shadow Realms. IP: shadowrealmswebsite.sytes.net | Minden jog fenntartva.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

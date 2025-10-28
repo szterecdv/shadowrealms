@@ -1,0 +1,539 @@
+/* style.css - Végleges, funkciókban gazdag Stíluslap (TELJES VERZIÓ - COUNTDOWN JAVÍTVA) */
+
+:root {
+    --bg-dark: #0A0A14; 
+    --accent-cyan: #00FFFF; 
+    --accent-purple: #A020F0; 
+    --text-light: #D0D0FF; 
+    --font-title: 'Cinzel', serif; 
+    --font-body: 'Roboto', sans-serif; 
+    --transition-speed: 0.4s;
+    /* 🚨 Dinamikus Változók */
+    --box-shadow-intensity: 0.8; 
+    --text-shadow-intensity: 1.0; 
+    --bg-darkness-level: 0.0; /* 0.0 - 1.0 */
+}
+
+body {
+    /* Dinamikus sötétítés HSL-lel, hogy a neon színek ne halványuljanak el */
+    background-color: hsl(230, 29%, calc(6% * (1 - var(--bg-darkness-level)))); 
+    color: var(--text-light);
+    font-family: var(--font-body); 
+    margin: 0;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Roboto:wght@400;700&display=swap');
+
+
+/* --- ÁLTALÁNOS STRUKTÚRA --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(10, 10, 20, 0.95);
+    border-bottom: 2px solid var(--accent-purple);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-box {
+    font-family: var(--font-title);
+    font-size: 2em;
+    color: var(--accent-purple);
+    text-shadow: 0 0 calc(8px * var(--text-shadow-intensity)) rgba(160, 32, 240, 0.8);
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 5px 0;
+    transition: var(--transition-speed);
+    font-weight: 700;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent-cyan);
+    border-bottom: 3px solid var(--accent-cyan);
+    text-shadow: 0 0 calc(5px * var(--text-shadow-intensity)) rgba(0, 255, 255, 0.5);
+}
+
+.cta-header {
+    background-color: var(--accent-cyan);
+    color: var(--bg-dark);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color var(--transition-speed), transform 0.2s;
+    box-shadow: 0 0 calc(10px * var(--box-shadow-intensity)) rgba(0, 255, 255, 0.6);
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+.cta-header:hover {
+    background-color: #4DFFFF;
+    transform: scale(1.05);
+}
+
+section {
+    padding: 80px 5%;
+    text-align: center;
+    border-bottom: 1px solid rgba(160, 32, 240, 0.1);
+}
+
+section h2 {
+    font-family: var(--font-title);
+    color: var(--accent-cyan);
+    margin-bottom: 40px;
+    font-size: 2.2em;
+    text-shadow: 0 0 calc(8px * var(--text-shadow-intensity)) rgba(0, 255, 255, 0.5);
+}
+
+/* --- HERO & IP WIDGET --- */
+.hero-section {
+    /* Ezt a JS fogja felülírni, a mentett beállítások szerint */
+    background: var(--background-image, url('https://via.placeholder.com/1920x900/0D0A1A/A020F0?text=SHADOW+REALMS+ENTRANCE')) no-repeat center center/cover;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    background: rgba(10, 10, 20, 0.92);
+    padding: 50px 60px;
+    border-radius: 15px;
+    border: 3px solid var(--accent-purple);
+    box-shadow: 0 0 calc(40px * var(--box-shadow-intensity)) rgba(160, 32, 240, 0.8);
+}
+
+.hero-content h1 {
+    font-size: 4.5em;
+    color: var(--accent-cyan);
+    text-shadow: 0 0 calc(20px * var(--text-shadow-intensity)) rgba(0, 255, 255, 1);
+    margin: 0 0 20px 0;
+}
+
+.ip-display-box {
+    display: inline-flex;
+    margin: 20px 0;
+    background: rgba(20, 20, 30, 0.9);
+    border: 1px solid var(--accent-purple);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 calc(10px * var(--box-shadow-intensity)) rgba(160, 32, 240, 0.5);
+}
+
+#mc-ip {
+    font-family: monospace;
+    font-size: 1.4em;
+    padding: 12px 20px;
+    user-select: all;
+    color: var(--accent-cyan);
+}
+
+.copy-btn {
+    background-color: var(--accent-purple);
+    color: var(--text-light);
+    border: none;
+    padding: 12px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+.copy-btn:hover {
+    background-color: #c040ff;
+}
+
+#status-widget {
+    font-size: 1.1em;
+}
+.status-online { color: var(--accent-cyan); font-weight: bold; }
+.status-offline { color: #FF6060; font-weight: bold; }
+.status-loading { color: #FFD700; }
+
+/* --- KOMPAKT KÁRTYA STÍLUS --- */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    background-color: #161625;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    text-align: center;
+    box-shadow: 0 4px calc(15px * var(--box-shadow-intensity)) rgba(0, 0, 0, 0.5);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px calc(25px * var(--box-shadow-intensity)) rgba(0, 255, 255, 0.3);
+    border-color: var(--accent-cyan);
+}
+
+.feature-card h3 {
+    color: var(--accent-purple);
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.feature-card i {
+    color: var(--accent-cyan);
+    font-size: 2em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* --- EMBED KONTÉNEREK STÍLUSAI --- */
+.embed-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #1a1a2e;
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px solid var(--accent-purple); 
+    box-shadow: 0 0 calc(25px * var(--box-shadow-intensity)) rgba(160, 32, 240, 0.6);
+}
+
+.embed-container iframe {
+    width: 100%;
+    height: 450px; 
+    border: none;
+    border-radius: 5px;
+}
+
+/* --- SHADOW VAULT STÍLUS --- */
+#vault-card {
+    background: var(--bg-dark); 
+    border: 3px solid var(--accent-purple); 
+    box-shadow: 0 0 calc(25px * var(--box-shadow-intensity)) rgba(160, 32, 240, 0.6);
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 35px;
+    border-radius: 12px;
+}
+
+#vault-lock .icon-lock {
+    color: var(--accent-cyan);
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { text-shadow: 0 0 calc(8px * var(--text-shadow-intensity)) rgba(0, 255, 255, 0.5); opacity: 0.8; }
+    to { text-shadow: 0 0 calc(15px * var(--text-shadow-intensity)) var(--accent-cyan); opacity: 1; }
+}
+
+#vault-key {
+    background: #111122;
+    border: 1px solid var(--text-light);
+    color: var(--accent-cyan);
+    padding: 12px;
+    width: 65%;
+    margin-top: 15px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 1.1em;
+}
+
+.cta-vault-button {
+    background-color: var(--accent-cyan);
+    color: var(--bg-dark);
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color var(--transition-speed);
+    margin-left: 10px;
+    text-decoration: none; 
+    display: inline-block;
+}
+.cta-vault-button:hover {
+    background-color: #4DFFFF;
+}
+
+/* --- KÖZÖSSÉGI WIDGET (megtartva) --- */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.social-links a {
+    color: var(--text-light);
+    font-size: 2.5em;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--accent-cyan);
+    transform: scale(1.15);
+}
+
+/* 🚨 VISSZASZÁMLÁLÓ STÍLUS (JAVÍTVA ÉS MEGERŐSÍTVE) 🚨 */
+#countdown-box {
+    display: flex;
+    justify-content: center; /* Középre igazítás */
+    gap: 30px; /* Megnövelt távolság az elemek között */
+    max-width: 800px;
+    margin: 40px auto; /* Középre helyezés */
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(20, 20, 40, 0.6); /* Sötétebb háttér */
+    box-shadow: 0 0 calc(15px * var(--box-shadow-intensity)) rgba(160, 32, 240, 0.4);
+}
+
+.time-segment {
+    background: rgba(0, 0, 0, 0.3); /* Még sötétebb belső háttér */
+    padding: 20px 25px;
+    border-radius: 8px;
+    border: 1px solid var(--accent-cyan);
+    min-width: 100px;
+    flex-grow: 1;
+    text-align: center;
+    box-shadow: 0 0 calc(8px * var(--box-shadow-intensity)) rgba(0, 255, 255, 0.3);
+}
+
+.time-segment span {
+    display: block;
+    font-family: var(--font-title);
+    font-size: 3.0em; /* Nagyobb számok */
+    color: var(--accent-cyan);
+    text-shadow: 0 0 calc(7px * var(--text-shadow-intensity)) rgba(0, 255, 255, 1);
+    margin-bottom: 5px;
+}
+.time-segment small {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    color: var(--accent-purple); /* Lila felirat */
+    font-weight: bold;
+}
+
+
+/* --- BEÁLLÍTÁSOK MENÜ STÍLUS (RÉSZLETES) --- */
+.settings-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: -350px; 
+    width: 300px;
+    height: 100%;
+    background-color: rgba(10, 10, 20, 0.98);
+    border-left: 3px solid var(--accent-purple);
+    z-index: 2000;
+    transition: right 0.5s ease-in-out;
+    padding: 20px;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+}
+
+.settings-menu-overlay.active {
+    right: 0; 
+}
+
+.settings-content h2 {
+    font-size: 1.8em;
+    color: var(--accent-cyan);
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: var(--font-title);
+    text-shadow: 0 0 calc(5px * var(--text-shadow-intensity)) rgba(0, 255, 255, 0.8);
+}
+
+.settings-content .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2em;
+    color: var(--text-light);
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Csoportosítás a beállításokon belül */
+.setting-group {
+    border: 1px solid rgba(160, 32, 240, 0.3);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 25px;
+}
+.setting-group h3 {
+    color: var(--accent-purple);
+    font-size: 1.3em;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.setting-item {
+    margin-bottom: 15px;
+    padding: 10px 0;
+    text-align: left;
+}
+.setting-item h4 {
+    color: var(--text-light);
+    font-size: 1.0em;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.theme-options button {
+    padding: 8px 15px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: 2px solid var(--text-light);
+    color: var(--bg-dark);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.2s;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+.theme-options button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.slider {
+    width: 100%;
+    height: 10px;
+    background: #555;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 5px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    cursor: pointer;
+    box-shadow: 0 0 calc(5px * var(--box-shadow-intensity)) var(--accent-cyan);
+}
+
+/* 🚨 FEJLESZTŐI KONZOL STÍLUS */
+.dev-console-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.9);
+    border-top: 2px solid var(--accent-cyan);
+    color: #00FF00; 
+    font-family: monospace;
+    font-size: 0.8em;
+    z-index: 1999;
+    padding: 10px;
+    opacity: 0; 
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.dev-console-overlay.active {
+    opacity: 1; 
+    pointer-events: auto;
+}
+
+.dev-console-overlay h4 {
+    color: var(--accent-cyan);
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+}
+
+.log-output {
+    height: 160px;
+    overflow-y: scroll;
+    padding-right: 5px;
+}
+.log-output p {
+    margin: 0;
+    border-bottom: 1px dashed rgba(0, 255, 255, 0.1);
+}
+.log-error {
+    color: #FF6060;
+}
+.log-info {
+    color: #00FFFF;
+}
+/* Görgetősáv stílusa (Chrome/Safari) */
+.log-output::-webkit-scrollbar {
+    width: 5px;
+}
+.log-output::-webkit-scrollbar-thumb {
+    background: var(--accent-cyan);
+    border-radius: 10px;
+}
+
+
+/* --- LÁBLÉC --- */
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #05050a;
+    font-size: 0.9em;
+    color: #555;
+    border-top: 1px solid var(--accent-purple);
+    margin-top: auto; 
+}
+
+/* Mobil reszponzivitás */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .hero-content {
+        padding: 30px;
+    }
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav {
+        margin: 10px 0;
+    }
+    .cta-header {
+        margin-top: 10px;
+    }
+    .settings-menu-overlay {
+        width: 100%;
+        max-width: none;
+    }
+    .dev-console-overlay {
+        width: 100%;
+        height: 150px;
+    }
+    
+    /* Visszaszámláló mobilra */
+    #countdown-box {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

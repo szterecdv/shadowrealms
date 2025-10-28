@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Realms ⚡ Szerver Részletek</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-box">SHADOW REALMS</div>
+        <nav>
+            <a href="index.html">FŐOLDAL</a>
+            <a href="server.html" class="active">SZERVER</a>
+            <a href="community.html">KÖZÖSSÉG</a>
+            <a href="event.html">EVENTEK</a>
+        </nav>
+        <button class="cta-header" onclick="toggleSettings()"><i class="fas fa-cog"></i> BEÁLLÍTÁSOK</button>
+    </header>
+
+    <main>
+        <section>
+            <h2>🌐 SZERVER STÁTUSZ ÉS KAPCSOLÓDÁS</h2>
+            
+            <div class="feature-grid" style="max-width: 900px; margin: 40px auto;">
+                <div class="feature-card">
+                    <i class="fas fa-globe-europe"></i>
+                    <h3>Kapcsolódási Cím</h3>
+                    <p>shadowrealmswebsite.sytes.net</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-signal"></i>
+                    <h3 id="mc-status-text" class="status-loading">Betöltés...</h3>
+                    <p id="mc-players">(Online/Max)</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Verzió</h3>
+                    <p>1.19.4-1.20.2 (Cross-version támogatás)</p>
+                </div>
+            </div>
+        </section>    
+    <div id="settings-menu" class="settings-menu-overlay"></div>
+
+    <footer>
+        <p>&copy; 2025 Shadow Realms. IP: shadowrealmswebsite.sytes.net | Minden jog fenntartva.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
